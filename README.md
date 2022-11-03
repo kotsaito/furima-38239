@@ -42,14 +42,14 @@
 - has_many :orders
 
 ## orders テーブル
-| Column    | Type    | Options         |
-| ----------| ------- | --------------- |
-| post_code | integer | null: false     |
-| region    | string  | null: false     |
-| city      | string  | null: false     |
-| address   | text    | null: false     |
-| building  | text    |                 |
-| tell      | text    | null: false     |
+| Column    | Type     | Options         |
+| ----------| -------- | --------------- |
+| post_code | integer  | null: false     |
+| region    | string   | null: false     |
+| city      | string   | null: false     |
+| address   | text     | null: false     |
+| building  | text     |                 |
+| tell      | text     | null: false     |
 
 ##Association
 - has_many :purchase_histry
