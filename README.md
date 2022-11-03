@@ -1,55 +1,24 @@
-## users テーブル
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| fullname           | text   | null: false               |
-| kana               | text   | null: false               |
-| birthday           | text   | null: false               |
+# README
 
-##Association
-- has_many :item
-- has_many :purchase_histry
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## items テーブル
+Things you may want to cover:
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| product_name  | string     | null: false                    |
-| description   | text       | null: false                    |
-| category      | string     | null: false                    |
-| status        | string     | null: false                    |
-| shipping_cost | text       | null: false                    |
-| prefecture    | string     | null: false                    |
-| price         | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+* Ruby version
 
-##Association
-- belongs_to :user
-- has_one :purchase_histry
+* System dependencies
 
-## purchase_histriyies テーブル
+* Configuration
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| items      | references | null: false, foreign_key: true |
-| user       | references | null: false, foreign_key: true |
+* Database creation
 
-##Association
-- belongs_to :item
-- belongs_to :user
-- has_many :orders
+* Database initialization
 
-## orders テーブル
-| Column    | Type    | Options         |
-| ----------| ------- | --------------- |
-| post_code | integer | null: false     |
-| region    | string  | null: false     |
-| city      | string  | null: false     |
-| address   | text    | null: false     |
-| building  | text    |                 |
-| tell      | text    | null: false     |
+* How to run the test suite
 
-##Association
-- has_many :purchase_histry
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
