@@ -53,3 +53,4 @@
 
 ##Association
 - has_many :purchase_histry
+
