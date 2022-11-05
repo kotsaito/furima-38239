@@ -1,12 +1,12 @@
 ## users テーブル
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| fullname           | text   | null: false               |
-| kana               | text   | null: false               |
-| birthday           | text   | null: false               |
+| Column             | Type    | Options                   |
+| ------------------ | ------  | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| fullname           | string  | null: false               |
+| kana               | string  | null: false               |
+| birthday           | integer | null: false               |
 
 ##Association
 - has_many :item
@@ -20,7 +20,7 @@
 | description   | text       | null: false                    |
 | category      | string     | null: false                    |
 | status        | string     | null: false                    |
-| shipping_cost | text       | null: false                    |
+| shipping_cost | string     | null: false                    |
 | prefecture    | string     | null: false                    |
 | price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
@@ -47,9 +47,9 @@
 | post_code | integer | null: false     |
 | region    | string  | null: false     |
 | city      | string  | null: false     |
-| address   | text    | null: false     |
-| building  | text    |                 |
-| tell      | text    | null: false     |
+| address   | string  | null: false     |
+| building  | string  |                 |
+| tell      | integer | null: false     |
 
 ##Association
 - has_many :purchase_histry
