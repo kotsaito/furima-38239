@@ -12,7 +12,7 @@
 
 ##Association
 - has_many :items
-- has_many :purchase_histries
+- has_many :purchase_histories
 
 ## items テーブル
 
@@ -23,16 +23,16 @@
 | category_id      | integer    | null: false                    |
 | status_id        | integer    | null: false                    |
 | shipping_cost_id | integer    | null: false                    |
-| region_id        | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 ##Association
 - belongs_to :user
-- has_one :purchase_histry
+- has_one :purchase_history
 
-## purchase_histries テーブル
+## purchase_histories テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
@@ -45,15 +45,15 @@
 - has_one :order
 
 ## orders テーブル
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| post_code       | integer    | null: false                    |
-| prefecture_id   | integer    | null: false                    |
-| city            | string     | null: false                    |
-| address         | string     | null: false                    |
-| building        | string     |                                |
-| tell            | integer    | null: false                    |
-| purchase_histry | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| post_code        | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| city             | string     | null: false                    |
+| address          | string     | null: false                    |
+| building         | string     |                                |
+| tell             | string     | null: false                    |
+| purchase_history | references | null: false, foreign_key: true |
 
 ##Association
-- belongs_to :purchase_histry
+- belongs_to :purchase_history
