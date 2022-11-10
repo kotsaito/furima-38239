@@ -7,9 +7,13 @@ class User < ApplicationRecord
   has_many :purchase_histories
 
   validates :nickname,   presence: true
-  validates :last_name,  presence: true
-  validates :first_name, presence: true
-  validates :sei_kana,   presence: true
-  validates :mei_kana,   presence: true
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください' } do
+    validates :last_name
+    validates :first_name
+  end
+  with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: '全角カタカナで入力してください' } do
+    validates :sei_kana
+    validates :mei_kana
+  end
   validates :birthday,   presence: true
 end
