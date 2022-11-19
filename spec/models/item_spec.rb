@@ -12,7 +12,7 @@ RSpec.describe Item, type: :model do
       end
     end
     context '商品登録できない場合' do
-      it 'nuserが紐づいていないと登録できない' do
+      it 'userが紐づいていないと登録できない' do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
@@ -32,28 +32,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
-      it 'カテゴリーを選択しないと登録できない' do
-        @item.category_id = ''
+      it 'カテゴリーに「---」が選択されている場合は出品できない' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it '商品の状態を選択しないと登録できない' do
-        @item.status_id = ''
+      it '商品の状態に「---」が選択されている場合は出品できない' do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
-      it '配送料の負担を選択しないと登録できない' do
-        @item.shipping_cost_id = ''
+      it '配送料の負担に「---」が選択されている場合は出品できない' do
+        @item.shipping_cost_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
       end
-      it '発送元の地域を選択しないと登録できない' do
-        @item.prefecture_id = ''
+      it '発送元の地域に「---」が選択されている場合は出品できない' do
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it '発送までの日数を選択しないと登録できない' do
-        @item.shipping_date_id = ''
+      it '発送までの日数に「---」が選択されている場合は出品できない' do
+        @item.shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping date can't be blank")
       end
