@@ -11,6 +11,12 @@ class PurchaseHistoriesController < ApplicationController
   def create
     @purchase_history_order = PurchaseHistoryOrder.new( purchase_history_params)
     if @purchase_history_order.valid?
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
+      Payjp::Charge.create(
+        amount: @item.price,  
+        card: purchase_history_params[:token],   
+        currency: 'jpy'               
+      )
       @purchase_history_order.save
       redirect_to root_path
     else
@@ -21,7 +27,7 @@ class PurchaseHistoriesController < ApplicationController
   private
 
   def purchase_history_params
-    params.require(:purchase_history_order).permit(:post_code, :prefecture_id, :city, :address, :building_name, :tell).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:purchase_history_order).permit(:post_code, :prefecture_id, :city, :address, :building_name, :tell).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def set_item
