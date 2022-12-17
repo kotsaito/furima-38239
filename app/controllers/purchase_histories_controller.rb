@@ -11,7 +11,7 @@ class PurchaseHistoriesController < ApplicationController
   def create
     @purchase_history_order = PurchaseHistoryOrder.new( purchase_history_params)
     if @purchase_history_order.valid?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
         amount: @item.price,  
         card: purchase_history_params[:token],   
