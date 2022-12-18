@@ -11,7 +11,7 @@ class PurchaseHistoryOrder
             numericality: { only_integer: true, message: "is invalid. Input only number" }
   validates :user_id, presence: true
   validates :item_id, presence: true
-  #validates :token, presence: true
+  validates :token, presence: true
 
   def save
     purchase_history = PurchaseHistory.create(item_id: item_id, user_id: user_id)
