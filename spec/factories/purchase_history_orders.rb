@@ -4,8 +4,8 @@ FactoryBot.define do
     prefecture_id { 2 }
     city { '東京都' }
     address { '1-1' }
-    building_name{ '東京ハイツ' }
-    tell {'0123456789'}
-    token {"tok_abcdefghijk00000000000000000"}
+    building_name { '東京ハイツ' }
+    tell { '0123456789' }
+    token { 'tok_abcdefghijk00000000000000000' }
   end
 end

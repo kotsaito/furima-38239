@@ -28,7 +28,7 @@ RSpec.describe PurchaseHistoryOrder, type: :model do
       it 'post_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @purchase_history_order.post_code = '1234567'
         @purchase_history_order.valid?
-        expect(@purchase_history_order.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@purchase_history_order.errors.full_messages).to include('Post code is invalid. Enter it as follows (e.g. 123-4567)')
       end
       it 'prefectureを選択していないと保存できないこと' do
         @purchase_history_order.prefecture_id = 1
@@ -53,17 +53,17 @@ RSpec.describe PurchaseHistoryOrder, type: :model do
       it 'tellに数字以外が含まれると登録できないこと' do
         @purchase_history_order.tell = 'aaaaaaaaaaa'
         @purchase_history_order.valid?
-        expect(@purchase_history_order.errors.full_messages).to include("Tell is invalid. Input only number")
+        expect(@purchase_history_order.errors.full_messages).to include('Tell is invalid. Input only number')
       end
       it 'tellが9文字以下だと登録できないこと' do
         @purchase_history_order.tell = '000000000'
         @purchase_history_order.valid?
-        expect(@purchase_history_order.errors.full_messages).to include("Tell is too short (minimum is 10 characters)")
+        expect(@purchase_history_order.errors.full_messages).to include('Tell is too short (minimum is 10 characters)')
       end
       it 'tellが12文字以上だと登録できないこと' do
         @purchase_history_order.tell = '000000000000'
         @purchase_history_order.valid?
-        expect(@purchase_history_order.errors.full_messages).to include("Tell is too long (maximum is 11 characters)")
+        expect(@purchase_history_order.errors.full_messages).to include('Tell is too long (maximum is 11 characters)')
       end
       it 'userが紐付いていないと保存できないこと' do
         @purchase_history_order.user_id = nil
